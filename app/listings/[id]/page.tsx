@@ -184,7 +184,8 @@ export default function ListingDetail() {
                   <div className="pt-10 border-t border-gray-100">
                     <h3 className="text-[11px] font-black text-gray-400 uppercase tracking-[0.3em] mb-8">Service Connections</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      {/* {['water', 'gas', 'electricity'].map((util) => (['water', 'gas', 'electricity'].map((util) => ( */}
+                      {/* {['water', 'gas', 'electricity'].map((util) => (
+                       */}
                       {(['water', 'gas', 'electricity'] as const).map((util) => (
                         listing.utilities?.[util] && (
                           <div key={util} className="flex items-center gap-4 bg-white p-6 rounded-3xl border border-gray-100">
