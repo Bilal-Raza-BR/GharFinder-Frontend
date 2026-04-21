@@ -49,7 +49,7 @@ export default function ListingDetail() {
     const loadListing = async () => {
       try {
         setLoading(true);
-        const result = await getListingById(id);
+        const result = await getListingById(id as string);
         setListing(result.data);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Property load nahi ho saki");
@@ -108,7 +108,7 @@ export default function ListingDetail() {
             <div className="max-w-3xl">
               <div className="flex items-center gap-3 mb-4">
                 <span className="bg-green-600 text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg shadow-green-200">Featured Home</span>
-                <span className="text-gray-300 font-black text-xs uppercase tracking-widest">ID: #{listing?._id?.slice(-6).toUpperCase()}</span>
+                <span className="text-gray-300 font-black text-xs uppercase tracking-widest">ID: #{listing._id.slice(-6).toUpperCase()}</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-black text-gray-900 tracking-tighter leading-[0.9] mb-6">
                 {listing.title}
@@ -172,7 +172,7 @@ export default function ListingDetail() {
                       <h3 className="text-[11px] font-black text-gray-400 uppercase tracking-[0.3em] mb-6">Status & Rules</h3>
                       <div className="flex flex-wrap gap-3">
                         {listing.furnished ? <Badge variant="success">Furnished</Badge> : <Badge variant="outline">Unfurnished</Badge>}
-                        {listing.familyAllowed && <Badge variant="primary">Family Only</Badge>}
+                        {listing.familyAllowed && <Badge variant="default">Family Only</Badge>}
                         {listing.gasAvailable && <Badge variant="secondary">Gas Ready</Badge>}
                       </div>
                       <p className="mt-6 text-sm text-gray-400 font-medium italic">"{listing.tenantRules || 'Rules will be shared on call.'}"</p>
