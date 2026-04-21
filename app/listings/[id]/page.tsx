@@ -7,10 +7,35 @@ import { isAuthenticated } from "../../../lib/auth";
 import { Badge } from "./Badge";
 import { ImageGallery } from "./ImageGallery";
 
+interface Listing {
+  _id: string;
+  title: string;
+  location: string;
+  price: number;
+  images: string[];
+  rooms?: number;
+  baths?: number;
+  area?: string;
+  description?: string;
+  furnished?: boolean;
+  familyAllowed?: boolean;
+  gasAvailable?: boolean;
+  tenantRules?: string;
+  utilities?: {
+    water?: string;
+    gas?: string;
+    electricity?: string;
+  };
+  latitude?: number;
+  longitude?: number;
+  owner?: { name: string; phone: string };
+  contactLink?: string;
+}
+
 export default function ListingDetail() {
   const { id } = useParams();
   const router = useRouter();
-  const [listing, setListing] = useState(null);
+  const [listing, setListing] = useState<Listing | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
