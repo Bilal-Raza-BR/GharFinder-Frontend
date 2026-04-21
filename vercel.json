@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://ghar-finder-backend.vercel.app/api/:path*"
+    }
+  ]
+}
